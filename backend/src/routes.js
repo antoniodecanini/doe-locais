@@ -17,6 +17,7 @@ routes.post("/users/login", UserController.login);
 
 routes.use(authMiddleware);
 
+routes.get("/locations", LocationController.index);
 routes.post("/location/create", uploader.array('photos', 10), LocationController.store);
 
 module.exports = routes;

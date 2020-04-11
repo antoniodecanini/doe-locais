@@ -6,6 +6,9 @@ const {Location, Photo} = require('../Model')
 
 module.exports = {
   async index(req, res) {
+    const locations = await Location.findAll();
+
+    console.log(locations);
     res.send('Index"')
   },
   
