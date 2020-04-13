@@ -15,6 +15,8 @@ module.exports = {
 
   async login(req,res) {
     const { email, password } = req.body;
+
+    console.log('loginroute');
   
     User.findOne({ where: { email } })
     .then(function(user) {
@@ -23,9 +25,10 @@ module.exports = {
       } else if (!user.validPassword(password)) {
         return res.status(400).json({ error: "Invalid password" });
       } else {  
+        console.log('ok, logado');
         return res.json({
-            user,
-            token: user.generateToken()
+            id : user.id,
+            JWT: user.generateToken()
         });
       }
     });

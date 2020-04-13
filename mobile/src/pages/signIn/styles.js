@@ -1,62 +1,73 @@
-// import styled from 'styled-components';
+import { StyleSheet } from 'react-native';
 
-// const Container = styled.View`
-//   flex: 1;
-//   alignItems: center;
-//   justifyContent: center;
-//   backgroundColor: #F5F5F5;
-// `;
+export default StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "#4c5760",
+  },
+  
+  header: {
+    flex: 0.5,
+    justifyContent: 'center',
+  },
 
-// const Logo = styled.Image`
-//   height: 30%;
-//   marginBottom: 40px;
-// `;
+  containerLogin: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    width: '90%',
+  },
 
-// const Input = styled.TextInput`
-//   paddingHorizontal: 20px;
-//   paddingVertical: 15px;
-//   borderRadius: 5px;
-//   backgroundColor: #FFF;
-//   alignSelf: stretch;
-//   marginBottom: 15px;
-//   marginHorizontal: 20px;
-//   fontSize: 16px;
-// `;
+  input: {
+    backgroundColor: '#fff',
+    width: '90%',
+    height: 50,
+    marginBottom: 25,
+    color: '#6b717e',
+    fontSize: 17,
+    borderRadius: 7,
+    padding: 10,
+  },
 
-// const ErrorMessage = styled.Text`
-//   textAlign: center;
-//   color: #ce2029;
-//   fontSize: 16px;
-//   marginBottom: 15px;
-//   marginHorizontal: 20px;
-// `;
+  btnSubmit: {
+    marginTop: 10,
+    backgroundColor: '#ea638c',
+    width: '90%',
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 15,
+  },
 
-// const Button = styled.TouchableHighlight`
-//   padding: 20px;
-//   borderRadius: 5px;
-//   backgroundColor: #FC6663;
-//   alignSelf: stretch;
-//   margin: 15px;
-//   marginHorizontal: 20px;
-// `;
+  btnSubmitText: {
+    color: '#fff',
+    fontSize: 20,
+  },
 
-// const ButtonText = styled.Text`
-//   color: #FFF;
-//   fontWeight: bold;
-//   fontSize: 16px;
-//   textAlign: center;
-// `;
+  btnRegister: {
+    marginTop: 50,
+    padding: 15,
+  },
+  
+  btnRegisterText: {
+    color: '#fff',
+    fontSize: 20,
+  },
 
-// const SignUpLink = styled.TouchableHighlight`
-//   padding: 10px;
-//   marginTop: 20px;
-// `;
+  btnLocals: {
+    backgroundColor: '#93a8ac',
+    marginTop: 35,
+    height: 45,
+    width: '70%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 15
+  },
 
-// const SignUpLinkText = styled.Text`
-//   color: #999;
-//   fontWeight: bold;
-//   fontSize: 16px;
-//   textAlign: center;
-// `;
-
-// export { Container, Logo, Input, ErrorMessage, Button, ButtonText, SignUpLink, SignUpLinkText };
+  btnLocalsText: {
+    color: '#fff',
+    fontSize: 20,
+  }
+})

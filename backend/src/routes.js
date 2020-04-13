@@ -13,7 +13,7 @@ routes.get ("/", (req, res) => {
 });
 
 routes.post("/users/create", UserController.create);
-routes.post("/users/login", UserController.login);
+routes.post("/login", UserController.login);
 
 routes.use(authMiddleware);
 
