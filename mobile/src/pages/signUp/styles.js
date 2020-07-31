@@ -1,62 +1,60 @@
-import { StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+import { StyleSheet } from "react-native";
+import Constants from "expo-constants";
 
 const statusBarHeight = Constants.statusBarHeight;
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    alignItems: "center",
+    backgroundColor: "#fff5fa",
   },
 
   header: {
     marginTop: statusBarHeight + 10,
+    width: "100%",
+    alignItems: "center",
+  },
+
+  txtHeader: {
+    fontSize: 36,
+    fontWeight: "bold",
+    color: "#ea638c",
+    letterSpacing: 2,
   },
 
   signUp: {
     flex: 1,
-    marginTop: 15,
-    width: '90%',
+    alignItems: "center",
+    width: "95%",
     marginBottom: 50,
+    marginTop: 30,
   },
 
   inputs: {
-    width: '90%',
-    height: 48,
-    fontSize: 32,
-    marginTop: 24,
-    color: "#6b717e",
+    width: "100%",
+    height: 50,
+    fontSize: 24,
+    color: "#111",
     padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#93a8ac"
+    backgroundColor: "#fff",
+    marginBottom: 15,
+    borderRadius: 7,
   },
 
   btnSignUp: {
-    width: '90%',
-    backgroundColor: '#f8bdc4',
+    width: "90%",
+    backgroundColor: "#ea638c",
     marginTop: 32,
     height: 45,
     borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   btnSignUpText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 24,
-    fontWeight: 'bold'
+    fontWeight: "bold",
   },
-
-  btnReturn: {
-    width: '90%',
-    marginTop: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  btnReturnText: {
-    fontSize: 24,
-    padding: 8,
-  }
-})
+});
