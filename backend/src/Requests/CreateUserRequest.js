@@ -1,8 +1,7 @@
 const {body} = require('express-validator');
 const {User} = require('../Model')
 
-
-Validation = [
+    Validation = [
         body('firstName').not().isEmpty().trim().escape().withMessage('O Primeiro nome nao pode ser vazio'),
         body('lastName').not().isEmpty().trim().escape().withMessage('O Ultimo nome nao pode ser vazio'),
         body('email').custom( async (value) => {

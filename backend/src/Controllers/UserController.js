@@ -5,7 +5,7 @@ const { body, validationResult } = require('express-validator');
 module.exports = {
   async create(req, res) {
     const user = await User.create(req.body); 
-    return res.status(201).json(user);
+    return res.status(201).json({msg : "Usuario criado com sucesso!"});
   },
 
   async login(req,res) {
