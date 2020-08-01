@@ -6,19 +6,11 @@ const {Location, Photo} = require('../Model')
 
 module.exports = {
   async index(req, res) {
-    const locations = await Location.findAll();
+    const locations = await Location.findAll({include : [Photo]});
 
-    console.log(locations);
-    res.send('Index"')
-  },
-  
-  async show(req, res) {
-    
+    return res.status(200).json(locations);
   },
 
-  async create(req,res) {
-    // View da create
-  },
   
   async store(req, res) {
     const location = await Location.create(req.body); 

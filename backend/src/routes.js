@@ -1,23 +1,56 @@
+// APP Config
 const express = require('express');
 const multer = require('multer');
-const UserController = require('./Controllers/UserController');
-const LocationController = require('./Controllers/LocationController');
-const authMiddleware = require("./Middlewares/auth");
-
 const routes = express.Router();
 const uploadConfig = require('../config/upload');
 const uploader = multer(uploadConfig);
+const ErrorHandlerRequest = require('./Errors/ErrorHandlerRequest');
 
-routes.get ("/", (req, res) => {
-  res.send("Hello!")
-});
+// Controllers
+const {create : userCreate,login : userLogin} = require('./Controllers/UserController');
+const {index : getLocations, store : saveLocations} = require('./Controllers/LocationController');
 
-routes.post("/users/create", UserController.create);
-routes.post("/login", UserController.login);
+// Middlewares
+const authMiddleware = require("./Middlewares/auth");
 
-routes.use(authMiddleware);
 
-routes.get("/locations", LocationController.index);
-routes.post("/location/create", uploader.array('photos', 10), LocationController.store);
+// Request Validations
+const CreateUserValidation = require('./Requests/CreateUserRequest');
+const UserLoginValidation = require('./Requests/UserLoginRequest');
+const CreateLocationRequest = require('./Requests/CreateLocationRequest');
+
+
+//ROUTES 
+routes.post
+(
+    "/users/create",
+    CreateUserValidation,
+    ErrorHandlerRequest,
+    userCreate
+);
+
+routes.post
+(
+  "/login",
+  UserLoginValidation,
+  ErrorHandlerRequest,
+  userLogin
+);
+
+
+routes.get(
+  "/locations",
+  authMiddleware,
+  getLocations
+  );
+
+routes.post(
+  "/location/create",
+  authMiddleware,
+  CreateLocationRequest,
+  ErrorHandlerRequest,
+  uploader.array('photos', 10),
+  saveLocations
+  );
 
 module.exports = routes;
