@@ -5,15 +5,16 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#fff5fa",
+    justifyContent: "space-around",
   },
 
   header: {
-    flex: 0.5,
-    justifyContent: "center",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "flex-end",
   },
 
   containerLogin: {
-    flex: 1,
     alignItems: "center",
     width: "90%",
   },
@@ -22,21 +23,37 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
     width: "90%",
     height: 50,
-    marginBottom: 15,
+    marginTop: 15,
     color: "#111",
-    fontSize: 24,
-    borderRadius: 7,
+    fontSize: 20,
     padding: 10,
+    borderRadius: 7,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#C3C3C3",
+  },
+
+  vwForgotPassword: {
+    width: "100%",
+    alignItems: "flex-end",
+    padding: 8,
+  },
+
+  btnForgotPassword: {},
+
+  btnForgotPasswordText: {
+    fontSize: 18,
+    color: "#555",
   },
 
   btnSubmit: {
-    marginTop: 20,
+    marginTop: 30,
     backgroundColor: "#ea638c",
-    width: "90%",
+    width: "60%",
     height: 45,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 15,
+    borderRadius: 10,
   },
 
   btnSubmitText: {
@@ -45,30 +62,45 @@ export default StyleSheet.create({
     fontWeight: "bold",
   },
 
-  btnRegister: {
-    marginTop: 5,
-    padding: 15,
+  signUpContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 15,
+    padding: 10,
   },
+
+  signUpTxt: {
+    color: "#555",
+    fontSize: 18,
+  },
+
+  btnRegister: {},
 
   btnRegisterText: {
     color: "#ea638c",
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "bold",
-    letterSpacing: 3,
   },
 
   btnLocals: {
-    backgroundColor: "#93a8ac",
+    backgroundColor: "#ea638c",
     marginTop: 50,
     height: 45,
     width: "70%",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 15,
+    borderRadius: 10,
+    flexDirection: "row",
+  },
+
+  btnLocalIcon: {
+    fontSize: 20,
+    color: "#fff",
   },
 
   btnLocalsText: {
     color: "#fff",
     fontSize: 20,
+    marginLeft: 5,
   },
 });
