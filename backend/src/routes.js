@@ -1,19 +1,38 @@
+// APP Config
 const express = require('express');
 const multer = require('multer');
-const UserController = require('./Controllers/UserController');
-const LocationController = require('./Controllers/LocationController');
-const authMiddleware = require("./Middlewares/auth");
-
 const routes = express.Router();
 const uploadConfig = require('../config/upload');
 const uploader = multer(uploadConfig);
+const ErrorHandlerRequest = require('./Errors/ErrorHandlerRequest');
 
-routes.get ("/", (req, res) => {
-  res.send("Hello!")
-});
+// Controllers
+const {create,login} = require('./Controllers/UserController');
+const LocationController = require('./Controllers/LocationController');
 
-routes.post("/users/create", UserController.create);
-routes.post("/login", UserController.login);
+// Middlewares
+const authMiddleware = require("./Middlewares/auth");
+
+
+// Request Validations
+const CreateUserValidation = require('./Requests/CreateUserRequest');
+const UserLoginValidation = require('./Requests/UserLoginRequest');
+
+
+//ROUTES 
+routes.post
+(
+    "/users/create",
+    CreateUserValidation,
+    (req,res) => { ErrorHandlerRequest(req,res,create)}
+);
+
+routes.post
+(
+  "/login",
+  UserLoginValidation,
+  (req,res) => { ErrorHandlerRequest(req,res,login)}
+);
 
 routes.use(authMiddleware);
 

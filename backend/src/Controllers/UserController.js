@@ -1,36 +1,26 @@
 const {User} = require('../Model')
+const { body, validationResult } = require('express-validator');
+
 
 module.exports = {
   async create(req, res) {
-    User.findOne({ where: { email : req.body.email } })
-    .then(async function(hasUser) {
-      if (!hasUser) {
-        const user = await User.create(req.body); 
-        return res.send(user)
-      } else {
-        console.log("Email já cadastrado!")
-      }
-    }); 
+    const user = await User.create(req.body); 
+    return res.status(201).json(user);
   },
 
   async login(req,res) {
     const { email, password } = req.body;
-
-    console.log('loginroute');
   
-    User.findOne({ where: { email } })
-    .then(function(user) {
-      if (!user) {
-        return res.status(400).json({ error: "Invalid password" });
-      } else if (!user.validPassword(password)) {
-        return res.status(400).json({ error: "Invalid password" });
-      } else {  
-        console.log('ok, logado');
-        return res.json({
-            id : user.id,
-            JWT: user.generateToken()
-        });
-      }
+    user = await User.findOne({ where: { email } });
+
+    if(!user.validPassword(password))
+      return res.status(400).json([{ msg: "Invalid password" }])
+    
+
+    return res.json({
+      id : user.id,
+      JWT: user.generateToken()
     });
+
   }
 }

@@ -1,15 +1,10 @@
 {
   "development": {
-      "dialect": "sqlite",
-      "storage": "./db.sqlite"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
+    "username": "development",
+    "password": "development",
+    "database": "doelocais",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "production": {
     "username": "root",
