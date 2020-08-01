@@ -8,7 +8,7 @@
   Doe Locais
 </h2>
 
-<p align="center">Doe Locais is a project created to help in any way during COVID-19. Your purpose
+<p align="center">Doe Locais is a project created to help in any way during COVID-19Your purpose
 is link together people who have a place available, to who peoples need a place</p>
 
 <p align="center">
