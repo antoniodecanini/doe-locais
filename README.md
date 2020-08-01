@@ -10,7 +10,6 @@
 
 <p align="center">Doe Locais is a project created to help in any way during COVID-19Your purpose
 
-
 <p align="center">
   <a href="https://github.com/antoniodecanini">
     <img alt="Made by Antonio Decanini" src="https://img.shields.io/badge/made%20by-Antonio%20Decanini-brightgreen">
