@@ -30,10 +30,6 @@ export default function SignIn() {
     login(JSON.stringify(JWT));
   }
 
-  async function handleForgotPassword() {
-    navigation.navigate("ForgotPassword");
-  }
-
   async function handleSignUp() {
     navigation.navigate("SignUp");
   }
@@ -45,13 +41,22 @@ export default function SignIn() {
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View style={styles.header}>
-        <Image source={logoImg} />
+        <TouchableOpacity style={styles.btnBack} onPress={navigation.goBack}>
+          <FontAwesome
+            name="chevron-left"
+            style={styles.iconBack}
+          ></FontAwesome>
+        </TouchableOpacity>
+
+        <Text style={styles.txtHeader}>Recuperar senha!</Text>
       </View>
 
-      <View style={styles.containerLogin}>
+      <View style={styles.containerRecover}>
+        <Text style={styles.txtRecover}>Digite o email cadastrado.</Text>
+
         <TextInput
           style={styles.input}
-          placeholder="Email"
+          placeholder="exemplo@exemplo.com"
           autoCorrect={false}
           onChangeText={(email) => setEmail(email)}
           keyboardType="email-address"
@@ -59,44 +64,17 @@ export default function SignIn() {
           autoCapitalize="none"
         />
 
-        <TextInput
-          style={styles.input}
-          placeholder="Senha"
-          autoCorrect={false}
-          onChangeText={(password) => setPassword(password)}
-          autoCapitalize="none"
-          autoCorrect={false}
-          secureTextEntry={true}
-        />
-
-        <View style={styles.vwForgotPassword}>
-          <TouchableOpacity
-            onPress={handleForgotPassword}
-            style={styles.btnForgotPassword}
-          >
-            <Text style={styles.btnForgotPasswordText}>Esqueceu a senha?</Text>
-          </TouchableOpacity>
-        </View>
-
         <TouchableOpacity onPress={handleLogin} style={styles.btnSubmit}>
-          <Text style={styles.btnSubmitText}>Entrar</Text>
+          <Text style={styles.btnSubmitText}>Enviar</Text>
         </TouchableOpacity>
-
-        <View style={styles.signUpContainer}>
-          <Text style={styles.signUpTxt}>Não tem uma conta? | </Text>
-          <TouchableOpacity onPress={handleSignUp} style={styles.btnRegister}>
-            <Text style={styles.btnRegisterText}>CADASTRE-SE</Text>
-          </TouchableOpacity>
-        </View>
       </View>
 
-      <TouchableOpacity onPress={handleLocals} style={styles.btnLocals}>
-        <FontAwesome
-          name="share-square-o"
-          style={styles.btnLocalIcon}
-        ></FontAwesome>
-        <Text style={styles.btnLocalsText}>Ver locais disponíveis</Text>
-      </TouchableOpacity>
+      <View style={styles.signUpContainer}>
+        <Text style={styles.signUpTxt}>Não tem uma conta? | </Text>
+        <TouchableOpacity onPress={handleSignUp} style={styles.btnRegister}>
+          <Text style={styles.btnRegisterText}>CADASTRE-SE</Text>
+        </TouchableOpacity>
+      </View>
     </KeyboardAvoidingView>
   );
 }

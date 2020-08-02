@@ -43,7 +43,7 @@ export default function SignUp() {
               <Text style={styles.signUpTxt}>Email</Text>
               <TextInput
                 style={styles.signUpInputs}
-                placeholder="joaosilva@email.com"
+                placeholder="exemplo@exemplo.com"
               />
             </View>
 
