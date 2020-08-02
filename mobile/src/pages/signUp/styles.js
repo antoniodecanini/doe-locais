@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#fff5fa",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   },
 
   signUpFirst: {
@@ -16,20 +16,21 @@ export default StyleSheet.create({
   },
 
   header: {
-    marginTop: statusBarHeight + 5,
-    marginBottom: 20,
+    marginTop: statusBarHeight + 15,
+    justifyContent: "flex-start",
+    width: "90%",
     flexDirection: "row",
-    justifyContent: "center",
+    marginBottom: 10,
   },
 
   btnBack: {
     justifyContent: "center",
+    marginRight: "17%",
   },
 
   iconBack: {
     fontSize: 30,
     color: "#ea638c",
-    marginRight: 15,
   },
 
   txtHeader: {
@@ -77,12 +78,13 @@ export default StyleSheet.create({
   },
 
   btnSignUp: {
-    width: "90%",
+    width: "75%",
     backgroundColor: "#ea638c",
     height: 45,
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 20,
   },
 
   btnSignUpText: {

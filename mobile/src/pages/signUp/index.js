@@ -18,14 +18,16 @@ export default function SignUp() {
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View style={styles.signUpFirst}>
-        <TouchableOpacity style={styles.btnBack} onPress={navigation.goBack}>
-          <FontAwesome
-            name="chevron-left"
-            style={styles.iconBack}
-          ></FontAwesome>
-        </TouchableOpacity>
+        <View style={styles.header}>
+          <TouchableOpacity style={styles.btnBack} onPress={navigation.goBack}>
+            <FontAwesome
+              name="chevron-left"
+              style={styles.iconBack}
+            ></FontAwesome>
+          </TouchableOpacity>
 
-        <Text style={styles.txtHeader}>Crie sua conta!</Text>
+          <Text style={styles.txtHeader}>Crie sua conta!</Text>
+        </View>
 
         <View style={styles.signUpContainer}>
           <View>

@@ -13,18 +13,19 @@ export default StyleSheet.create({
 
   header: {
     marginTop: statusBarHeight + 15,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     width: "90%",
+    flexDirection: "row",
   },
 
   btnBack: {
     justifyContent: "center",
+    marginRight: "10%",
   },
 
   iconBack: {
     fontSize: 30,
     color: "#ea638c",
-    marginRight: 15,
   },
 
   txtHeader: {
