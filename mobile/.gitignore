@@ -13,3 +13,4 @@ yarn.lock
 
 # macOS
 .DS_Store
+.env
