@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   AsyncStorage,
 } from "react-native";
+import { RectButton } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
@@ -25,6 +26,7 @@ export default function SignIn() {
     const response = await api
       .post("/login", { email, password })
       .catch((error) => console.log(error));
+
     const { id, JWT } = response.data;
 
     login(JSON.stringify(JWT));
@@ -78,9 +80,9 @@ export default function SignIn() {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity onPress={handleLogin} style={styles.btnSubmit}>
+        <RectButton onPress={handleLogin} style={styles.btnSubmit}>
           <Text style={styles.btnSubmitText}>Entrar</Text>
-        </TouchableOpacity>
+        </RectButton>
 
         <View style={styles.signUpContainer}>
           <Text style={styles.signUpTxt}>Não tem uma conta? | </Text>

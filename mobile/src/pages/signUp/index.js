@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -11,9 +11,29 @@ import { useNavigation } from "@react-navigation/native";
 import PasswordInputText from "react-native-hide-show-password-input";
 
 import styles from "./styles";
+import api from "../../services/api";
 
 export default function SignUp() {
   const navigation = useNavigation();
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleSignUp() {
+    const response = await api
+      .post("/users/create", {
+        firstName: name,
+        lastName: surname,
+        email,
+        phone: whatsapp,
+        password,
+      })
+      .catch((err) => console.log(err));
+
+    console.log(response);
+  }
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -33,12 +53,22 @@ export default function SignUp() {
           <View>
             <View style={styles.signUpFieldContainer}>
               <Text style={styles.signUpTxt}>Nome</Text>
-              <TextInput style={styles.signUpInputs} placeholder="João" />
+              <TextInput
+                style={styles.signUpInputs}
+                placeholder="João"
+                value={name}
+                onChangeText={(text) => setName(text)}
+              />
             </View>
 
             <View style={styles.signUpFieldContainer}>
               <Text style={styles.signUpTxt}>Sobrenome</Text>
-              <TextInput style={styles.signUpInputs} placeholder="Silva" />
+              <TextInput
+                style={styles.signUpInputs}
+                placeholder="Silva"
+                value={surname}
+                onChangeText={(text) => setSurname(text)}
+              />
             </View>
 
             <View style={styles.signUpFieldContainer}>
@@ -46,6 +76,8 @@ export default function SignUp() {
               <TextInput
                 style={styles.signUpInputs}
                 placeholder="exemplo@exemplo.com"
+                value={email}
+                onChangeText={(text) => setEmail(text)}
               />
             </View>
 
@@ -54,18 +86,25 @@ export default function SignUp() {
               <TextInput
                 style={styles.signUpInputs}
                 placeholder="(99) 99999-9999"
+                value={whatsapp}
+                onChangeText={(text) => setWhatsapp(text)}
               />
             </View>
 
             <View style={styles.signUpFieldContainer}>
               <Text style={styles.signUpTxt}>Senha</Text>
-              <TextInput style={styles.signUpInputs} placeholder="********" />
+              <TextInput
+                style={styles.signUpInputs}
+                placeholder="********"
+                value={password}
+                onChangeText={(text) => setPassword(text)}
+              />
             </View>
           </View>
         </View>
       </View>
 
-      <TouchableOpacity style={styles.btnSignUp} onPress={() => alert("ola")}>
+      <TouchableOpacity style={styles.btnSignUp} onPress={handleSignUp}>
         <Text style={styles.btnSignUpText}>Criar</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
