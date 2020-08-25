@@ -5,10 +5,10 @@ import {
   TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
+  Alert,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import PasswordInputText from "react-native-hide-show-password-input";
 
 import styles from "./styles";
 import api from "../../services/api";
@@ -30,9 +30,21 @@ export default function SignUp() {
         phone: whatsapp,
         password,
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        return Alert.alert(
+          "Erro ao criar usuário, verifique os campos e tente novamente"
+        );
+      });
 
-    console.log(response);
+    if (response) {
+      Alert.alert("Parabéns!", "Usuário criado com sucesso", [
+        {
+          text: "Fazer login!",
+          onPress: () => navigation.navigate("SignIn"),
+        },
+      ]);
+    }
   }
 
   return (
