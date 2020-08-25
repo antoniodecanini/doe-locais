@@ -7,6 +7,7 @@ import {
   TextInput,
   KeyboardAvoidingView,
   AsyncStorage,
+  Alert,
 } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
@@ -25,11 +26,19 @@ export default function SignIn() {
   async function handleLogin() {
     const response = await api
       .post("/login", { email, password })
-      .catch((error) => console.log(error));
+      .catch((err) => {
+        console.log(err);
+      });
 
-    const { id, JWT } = response.data;
+    if (response) {
+      const { id, JWT } = response.data;
 
-    login(JSON.stringify(JWT));
+      login(JSON.stringify(JWT));
+
+      return navigation.navigate("Locals");
+    }
+
+    return Alert.alert("Email ou senha inválidos");
   }
 
   async function handleForgotPassword() {
