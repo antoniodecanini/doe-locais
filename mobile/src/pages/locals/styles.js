@@ -38,4 +38,9 @@ export default StyleSheet.create({
     fontWeight: "bold",
     marginLeft: "20%",
   },
+
+  content: {
+    marginTop: 10,
+    width: "90%",
+  },
 });
