@@ -46,6 +46,7 @@ export default StyleSheet.create({
 
   signUpFieldContainer: {
     marginBottom: 10,
+    width: "100%",
   },
 
   signUpTxt: {

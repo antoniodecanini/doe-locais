@@ -39,8 +39,56 @@ export default StyleSheet.create({
     marginLeft: "20%",
   },
 
-  content: {
-    marginTop: 10,
+  signUpFirst: {
     width: "90%",
+    marginTop: 30,
+  },
+
+  signUpFieldContainer: {
+    marginBottom: 10,
+  },
+
+  signUpTxt: {
+    color: "#ea638c",
+    fontWeight: "bold",
+    fontSize: 20,
+    marginBottom: 2,
+  },
+
+  signUpInputs: {
+    height: 50,
+    fontSize: 20,
+    color: "#111",
+    padding: 10,
+    backgroundColor: "#fff",
+    borderRadius: 7,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#C3C3C3",
+    shadowColor: "#555",
+    shadowOffset: {
+      width: 3,
+      height: 0.7,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+
+    elevation: 2,
+  },
+
+  btnSignUp: {
+    width: "75%",
+    backgroundColor: "#ea638c",
+    height: 45,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+  },
+
+  btnSignUpText: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
   },
 });
