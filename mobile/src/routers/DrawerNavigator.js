@@ -11,6 +11,9 @@ import MyAccount from "../pages/myAccount";
 import Locals from "../pages/locals";
 
 import { logout } from "../services/auth";
+import { View, Image } from "react-native";
+
+import logoImg from "../assets/logo.png";
 
 const { Navigator, Screen } = createDrawerNavigator();
 
@@ -26,6 +29,13 @@ export default function Drawer() {
   function CustomDrawerContent(props) {
     return (
       <DrawerContentScrollView {...props}>
+        <View
+          style={{
+            alignItems: "center",
+          }}
+        >
+          <Image source={logoImg} />
+        </View>
         <DrawerItemList
           {...props}
           labelStyle={{
