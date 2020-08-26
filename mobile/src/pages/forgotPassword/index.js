@@ -21,14 +21,7 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
 
-  async function handleLogin() {
-    const response = await api
-      .post("/login", { email, password })
-      .catch((error) => console.log(error));
-    const { id, JWT } = response.data;
-
-    login(JSON.stringify(JWT));
-  }
+  async function handleSubmit() {}
 
   async function handleSignUp() {
     navigation.navigate("SignUp");
@@ -64,7 +57,7 @@ export default function SignIn() {
           autoCapitalize="none"
         />
 
-        <TouchableOpacity onPress={handleLogin} style={styles.btnSubmit}>
+        <TouchableOpacity onPress={handleSubmit} style={styles.btnSubmit}>
           <Text style={styles.btnSubmitText}>Enviar</Text>
         </TouchableOpacity>
       </View>

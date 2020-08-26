@@ -35,7 +35,7 @@ export default function SignIn() {
 
       login(JSON.stringify(JWT));
 
-      return navigation.navigate("Locals");
+      return handleLocals();
     }
 
     return Alert.alert("Email ou senha inválidos");
@@ -50,7 +50,7 @@ export default function SignIn() {
   }
 
   async function handleLocals() {
-    navigation.navigate("Locals");
+    navigation.navigate("Drawer");
   }
 
   return (
